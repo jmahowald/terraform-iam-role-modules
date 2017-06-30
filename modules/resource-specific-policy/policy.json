@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "TheseActionsDontSupportResourceLevelPermissions",
+        "Effect": "Allow",
+        "Action": ["ec2:Describe*"],
+        "Resource": "*"
+    }, {
+        "Sid": "ThisActionsSupportResourceLevelPermissions",
+        "Effect": "Allow",
+        "Action": ["ec2:RunInstances"],
+        "Resource": [
+            "arn:aws:ec2:us-west-1:936067746159:instance/*",
+            "arn:aws:ec2:us-west-1:936067746159:key-pair/*",
+            "arn:aws:ec2:us-west-1:936067746159:security-group/*",
+            "arn:aws:ec2:us-west-1:936067746159:volume/*",
+            "arn:aws:ec2:us-west-1::image/ami-*"
+        ]
+    }, {
+        "Sid": "TheseActionsSupportResourceLevelPermissions",
+        "Effect": "Allow",
+        "Action": [
+            "ec2:TerminateInstances",
+            "ec2:StopInstances",
+            "ec2:StartInstances"
+        ],
+        "Resource": "arn:aws:ec2:us-west-1:936067746159:instance/*",
+        "Condition": {
+            "StringEquals": {
+                "ec2:ResourceTag/Owner": "Josh Mahowald"
+            }
+        }
+    }]
+}
