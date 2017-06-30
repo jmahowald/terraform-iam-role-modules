@@ -10,7 +10,7 @@ You can either clone this project and navigate to the module you want and run te
 
 ```
 module "svc_users" {
-    source = "git::ssh://git@git.genesyslab.com/infrastructure/terraform-iam-role//modules/service-automation-policies"
+    source =  "github.com/jmahowald/terraform-iam-modules//modules/service-automation-policies"
     name_prefix = "arch"
 }
 
@@ -26,4 +26,3 @@ output "read_aws_secret_key" {
  */
 ```
 
-You can watch a get/plan/apply example in [asciicast](http://asciinema.lab.arch.genesys.com/a/2lvy4twjdg1e8duhasph05qiu)
