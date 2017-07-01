@@ -1,4 +1,6 @@
-#"Inspired by https://blogs.aws.amazon.com/security/post/Tx2KPWZJJ4S26H6/Demystifying-EC2-Resource-Level-Permissions"
+
+
+
 
 resource "aws_iam_policy" "instance_lifecycle_policy" {
     name = "${replace(var.tag_value, " ", "_")}_instance_lifecycle_policy"
@@ -52,6 +54,7 @@ output "account_id" {
   value = "${data.aws_iam_account_alias.current.account_alias}"
 }
 output "policy_arn" {
+    description = "the arn to use to attach to other users if needed"
     value =  "${aws_iam_policy.instance_lifecycle_policy.arn}"
 }
 

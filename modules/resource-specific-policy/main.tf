@@ -1,4 +1,8 @@
-
+/**
+ * Inspired by https://blogs.aws.amazon.com/security/post/Tx2KPWZJJ4S26H6/Demystifying-EC2-Resource-Level-Permissions"
+ * This creates policies that will allow users to terminate start and stop instances that have a particular tag value pair
+ */
+ 
 
 module "user" {
   source = "../user"
